@@ -168,6 +168,11 @@
             <version>2.0.5</version>
             <classifier>groovydoc</classifier>
         </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.0</version>
+        </dependency>
     </dependencies>
     
 
