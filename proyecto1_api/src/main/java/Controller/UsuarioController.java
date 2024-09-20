@@ -5,8 +5,8 @@
 package Controller;
 
 
-import Datos.JsonUtil;
-import Datos.Usuario;
+import Model.JsonUtil;
+import Model.Usuario;
 import Service.UsuarioService;
 import exceptions.InvalidDataException;
 import exceptions.NotFoundException;
@@ -19,28 +19,28 @@ import java.io.IOException;
  */
 public class UsuarioController {
 
-    JsonUtil jsonUtil = new JsonUtil();
-
-    public void CrearUsurio(String body, HttpServletResponse response) throws IOException, InvalidDataException {
-
-        Usuario user = (Usuario) jsonUtil.JsonStringAObjeto(body, Usuario.class);
-        UsuarioService usuarioService = new UsuarioService();
-
-        Usuario usuarioCreado = usuarioService.CrearUsuario(user);;
-        jsonUtil.EnviarJson(response, usuarioCreado);
-
-    }
-
-    public void GetUsuario(String codigo, String dash, HttpServletResponse response) throws IOException, NotFoundException {
-
-        UsuarioService usuarioService = new UsuarioService();
-
-        
-
-            Usuario usuario = usuarioService.getUsuarioID(codigo);
-            jsonUtil.EnviarJson(response, usuario);
-
-        
-            
-    }
+//    JsonUtil jsonUtil = new JsonUtil();
+//
+//    public void CrearUsurio(String body, HttpServletResponse response) throws IOException, InvalidDataException {
+//
+//        Usuario user = (Usuario) jsonUtil.JsonStringAObjeto(body, Usuario.class);
+//        UsuarioService usuarioService = new UsuarioService();
+//
+//        Usuario usuarioCreado = usuarioService.CrearUsuario(user);;
+//        jsonUtil.EnviarJson(response, usuarioCreado);
+//
+//    }
+//
+//    public void GetUsuario(String codigo, String dash, HttpServletResponse response) throws IOException, NotFoundException {
+//
+//        UsuarioService usuarioService = new UsuarioService();
+//
+//        
+//
+//            Usuario usuario = usuarioService.getUsuarioID(codigo);
+//            jsonUtil.EnviarJson(response, usuario);
+//
+//        
+//            
+//    }
 }

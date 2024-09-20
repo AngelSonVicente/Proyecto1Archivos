@@ -1,12 +1,14 @@
 package Service;
 
-import Datos.JsonUtil;
-import Datos.TipoUsuario;
+import Controller.LoginController;
+import Model.JsonUtil;
+import Model.TipoUsuario;
 import DatosBD.ConexionBD;
-import Datos.Usuario;
-import Datos.Util;
+import Model.Usuario;
+import Model.Util;
 import DatosBD.UsuarioBD;
 import com.google.gson.Gson;
+import exceptions.InvalidDataException;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
@@ -21,8 +23,9 @@ public class LoginService {
 
    
     private JsonUtil jsonUtil = new JsonUtil();
+    private LoginController loginCOntroller = new LoginController();
 
-    public void procesarSolicitud(String body, HttpServletResponse response) throws IOException {
+    public void procesarSolicitud(String body, HttpServletResponse response) throws IOException, InvalidDataException, InvalidDataException, InvalidDataException {
 
         Usuario UsuarioFE = (Usuario) jsonUtil.JsonStringAObjeto(body, Usuario.class);
         System.out.println("usuario_ " + UsuarioFE);
@@ -31,9 +34,10 @@ public class LoginService {
         System.out.println("contra de usuario: " + UsuarioFE.getPassword());
     
         Usuario usuario = new Usuario();
-        if (UsuarioFE.getTipo() == null) {
 
-            usuario = IsLogin(UsuarioFE.getPassword(), UsuarioFE.getUsuario());
+        validar(UsuarioFE);
+        
+            usuario = loginCOntroller.IsLogin(UsuarioFE.getPassword(), UsuarioFE.getCodigo(),UsuarioFE.getTipo());
             if (usuario != null) {
                 jsonUtil.EnviarJson(response, usuario);
 
@@ -45,58 +49,69 @@ public class LoginService {
 
             }
 
-        } else {
-            
-            
-        }
+      
 
     }
-
-    Util util = new Util();
-
-    private static final String SelectPassword = "SELECT password FROM usuarios WHERE usuario = ?";
-
-    public Usuario IsLogin(String ContraIngresada, String UsuarioIngresado) {
-
-        UsuarioBD usuarioBD = new UsuarioBD();
-        String ContraEncriptada = util.Encriptar(ContraIngresada);
-
-        String Contra = obtnerContra(UsuarioIngresado);
-        Usuario usuario = new Usuario();
-
-        System.out.println("contra ingresada: " + ContraEncriptada);
-        System.out.println("usuario ingresado: " + UsuarioIngresado);
-        System.out.println("contra : " + Contra);
+    
+    
+    private void validar(Usuario usuario) throws InvalidDataException{
         
-
-        if (ContraEncriptada.equals(Contra)) {
-            System.out.println("si ingresó");
-
-            usuario = usuarioBD.getUsuarioByUser(UsuarioIngresado);
-          
-            return usuario;
-
+        if(usuario.getCodigo() <=0 || usuario.getPassword()==null || usuario.getTipo()==null ){
+             throw new InvalidDataException("los datos no estan completos, por favor reviselos!");
+           
         }
-
-        return null;
+    
+    
     }
 
-    private String obtnerContra(String Usuario) {
-        try {
-            PreparedStatement select = conexion.prepareStatement(SelectPassword);
-            select.setString(1, Usuario);
-            ResultSet resultset = select.executeQuery();
-
-            if (resultset.next()) {
-                return resultset.getString("password");
-            }
-
-            return null;
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-
-        return null;
-    }
+//    Util util = new Util();
+//
+//    private static final String SelectPassword = "SELECT password FROM usuarios WHERE usuario = ?";
+//
+//    public Usuario IsLogin(String ContraIngresada, String UsuarioIngresado) {
+//
+//        UsuarioBD usuarioBD = new UsuarioBD();
+//        String ContraEncriptada = util.Encriptar(ContraIngresada);
+//
+//        String Contra = obtnerContra(UsuarioIngresado);
+//        Usuario usuario = new Usuario();
+//
+//        System.out.println("contra ingresada: " + ContraEncriptada);
+//        System.out.println("usuario ingresado: " + UsuarioIngresado);
+//        System.out.println("contra : " + Contra);
+//        
+//        
+//        
+//        
+//
+//        if (ContraEncriptada.equals(Contra)) {
+//            System.out.println("si ingresó");
+//
+//            usuario = usuarioBD.getUsuarioByUser(UsuarioIngresado);
+//          
+//            return usuario;
+//
+//        }
+//
+//        return null;
+//    }
+//
+//    private String obtnerContra(String Usuario) {
+//        try {
+//            PreparedStatement select = conexion.prepareStatement(SelectPassword);
+//            select.setString(1, Usuario);
+//            ResultSet resultset = select.executeQuery();
+//
+//            if (resultset.next()) {
+//                return resultset.getString("password");
+//            }
+//
+//            return null;
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//        }
+//
+//        return null;
+//    }
 
 }

@@ -5,17 +5,20 @@
 package Servlets;
 
 //import com.fasterxml.jackson.databind.ObjectMapper;
-import Datos.JsonUtil;
-import Datos.Usuario;
-import Datos.login;
+import Model.JsonUtil;
+import Model.Usuario;
+import Model.login;
 import Service.LoginService;
 import com.google.gson.Gson;
+import exceptions.InvalidDataException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -38,7 +41,14 @@ public class Login extends HttpServlet {
         System.out.println("Entre al servlet Login");
         
         String body = jsonUtil.getBody(request);
-        loginService.procesarSolicitud(body, response);
+        System.out.println(body);
+        try {
+            
+            
+            loginService.procesarSolicitud(body, response);
+        } catch (InvalidDataException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
 
     }

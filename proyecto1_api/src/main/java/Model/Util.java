@@ -1,4 +1,4 @@
-package Datos;
+package Model;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

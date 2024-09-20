@@ -7,8 +7,8 @@ package Servlets;
 import Controller.UsuarioController;
 
 
-import Datos.JsonUtil;
-import Datos.Usuario;
+import Model.JsonUtil;
+import Model.Usuario;
 import Service.UsuarioService;
 import exceptions.InvalidDataException;
 import exceptions.NotFoundException;
@@ -41,14 +41,14 @@ public class UsuarioServlet extends HttpServlet {
         String dash = request.getParameter("dash");
 
         System.out.println("codigo usuario: " + codigo);
-
-        UsuarioController usuarioController = new UsuarioController();
-        try {
-            usuarioController.GetUsuario(codigo, dash, response);
-        } catch (NotFoundException ex) {
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-
-        }
+//
+//        UsuarioController usuarioController = new UsuarioController();
+//        try {
+//            usuarioController.GetUsuario(codigo, dash, response);
+//        } catch (NotFoundException ex) {
+//            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+//
+//        }
  
 
     }
@@ -61,11 +61,11 @@ public class UsuarioServlet extends HttpServlet {
         String bosy = jsonUtil.getBody(request);
         
         UsuarioController usuarioController = new UsuarioController();
-        try {
-            usuarioController.CrearUsurio(bosy, response);
-        } catch (InvalidDataException ex) {
-        response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-  }
+//        try {
+//            usuarioController.CrearUsurio(bosy, response);
+//        } catch (InvalidDataException ex) {
+//        response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+//  }
         
   
             
@@ -75,14 +75,14 @@ public class UsuarioServlet extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String body=jsonUtil.getBody(request);
-        
-        try {
-            usuarioService.ActualizarUsuario(body, response);
-        } catch (InvalidDataException |NotFoundException ex) {
-          response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-
-        } 
-        
+//        
+//        try {
+//            usuarioService.ActualizarUsuario(body, response);
+//        } catch (InvalidDataException |NotFoundException ex) {
+//          response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+//
+//        } 
+//        
     }
     
 }
