@@ -3,14 +3,31 @@ import { RouterModule, Routes } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
 import { ModuloCajeroComponent } from './ModuloCajero/modulo-cajero/modulo-cajero.component';
+import { RealizarVentaComponent } from './ModuloCajero/realizar-venta/realizar-venta.component';
+import { ProductosComponent } from './ModuloCajero/productos/productos.component';
+import { CarritoComponent } from './ModuloCajero/carrito/carrito.component';
+
+const rutasCajero = [
+  {
+    path: 'Ventas',
+    title: 'Realizar Centa',
+    component: RealizarVentaComponent
+  },
+
+  {
+    path: 'Productos',
+    title: 'Productos',
+    component: ProductosComponent
+  },
+  {
+    path: 'Carrito',
+    title: 'Carrito',
+    component: CarritoComponent
+  },
 
 
-const rutasUsuario = [
-  
-  
 
 ]
-
 
 const routes: Routes = [
   {
@@ -32,6 +49,12 @@ const routes: Routes = [
     path: 'Proyecto1/Modulo/Cajero',
     title: "Modulo Cajero",
     component: ModuloCajeroComponent 
+  },
+  {
+    path:"Proyecto2/Cajero",
+    title:"Usuario",
+    children: rutasCajero,
+  
   },
   
 

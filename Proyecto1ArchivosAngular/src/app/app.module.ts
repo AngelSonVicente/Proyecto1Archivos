@@ -13,6 +13,9 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModuloCajeroComponent } from './ModuloCajero/modulo-cajero/modulo-cajero.component';
+import { RealizarVentaComponent } from './ModuloCajero/realizar-venta/realizar-venta.component';
+import { ProductosComponent } from './ModuloCajero/productos/productos.component';
+import { CarritoComponent } from './ModuloCajero/carrito/carrito.component';
 
 
 
@@ -23,7 +26,10 @@ import { ModuloCajeroComponent } from './ModuloCajero/modulo-cajero/modulo-cajer
     AppComponent,
     MenuComponent,
     LoginComponent,
-    ModuloCajeroComponent
+    ModuloCajeroComponent,
+    RealizarVentaComponent,
+    ProductosComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,
