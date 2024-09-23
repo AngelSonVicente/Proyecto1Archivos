@@ -1,15 +1,140 @@
 
 
+<div *ngFor="let producto of carrito" class="carrito-item">
+  <p>{{ producto.nombre }} - Q{{ producto.precio }} <button (click)="eliminarDelCarrito(producto.codigoProducto)"
+      class="btn btn-outline-danger">Eliminar</button>
+  </p>
+  <hr>
+</div>
+<h3>
+  <p>Total: Q{{ total }}</p>
+</h3>
 
+<hr>
+<h4>Metodo de pago</h4>
+<div class="btn-group" role="group" id="metodo" aria-label="Basic radio toggle button group">
+  <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" (click)="tarjeta()">
+  <label class="btn btn-outline-primary" for="btnradio1">Tarjeta</label>
 
+  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" (click)="efectivo()">
+  <label class="btn btn-outline-primary" for="btnradio2">Efectivo</label>
+</div>
+<br>
 
+<div *ngIf="!pagoEfectivo">
+  <form [formGroup]="FormularioTarjeta">
+    <div class="form-group">
+      <label for="inputAddress">Numero de la Tarjeta</label>
+      <input class="form-control" type="number"
+        [class.is-invalid]="FormularioTarjeta.controls['numeroTarjeta'].invalid && FormularioTarjeta.controls['numeroTarjeta'].touched"
+        id="numeroTarjeta" name="numeroTarjeta" formControlName="numeroTarjeta" />
 
-  
-    <div *ngFor="let producto of carrito" class="carrito-item">
-      <p>{{ producto.nombre }} - ${{ producto.precio }}</p>
-      <hr>
+      <div
+        *ngIf="FormularioTarjeta.controls['numeroTarjeta'].invalid && (FormularioTarjeta.controls['numeroTarjeta'].dirty || FormularioTarjeta.controls['numeroTarjeta'].touched)"
+        class="invalid-feedback">
+        <div>
+          ingrese el numero de la tarjeta!
+        </div>
+      </div>
     </div>
-  <h3>  <p>Total: ${{ total }}</p></h3>
-    <button (click)="finalizarCompra()"  class="btn btn-outline-success">Finalizar compra</button>
 
-    
+
+
+    <div class="form-group">
+      <label for="inputAddress">Codigo de seguridad</label>
+      <input class="form-control" type="number"
+        [class.is-invalid]="FormularioTarjeta.controls['codigoSeguridad'].invalid && FormularioTarjeta.controls['codigoSeguridad'].touched"
+        id="codigoSeguridad" name="codigoSeguridad" formControlName="codigoSeguridad" />
+
+      <div
+        *ngIf="FormularioTarjeta.controls['codigoSeguridad'].invalid && (FormularioTarjeta.controls['codigoSeguridad'].dirty || FormularioTarjeta.controls['codigoSeguridad'].touched)"
+        class="invalid-feedback">
+        <div>
+          Ingrese el codigo de seguridad de la tarjeta
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+</div>
+<hr>
+
+
+
+<h4>CF/Nit</h4>
+<div class="btn-group" role="group" id="consumidor" aria-label="xd">
+  <input type="radio" class="btn-check" name="btnradio1" id="btnradio11" autocomplete="off" (click)="cF()">
+  <label class="btn btn-outline-primary" for="btnradio11">CF</label>
+
+  <input type="radio" class="btn-check" name="btnradio1" id="btnradio22" autocomplete="off" (click)="nit()">
+  <label class="btn btn-outline-primary" for="btnradio22">Nit</label>
+</div>
+<br>
+
+
+
+
+
+
+
+
+<div *ngIf="!CF">
+  <form [formGroup]="FormularioNit">
+    <div class="form-group">
+      <label for="inputAddress">NIT</label>
+      <input class="form-control" type="number"
+        [class.is-invalid]="FormularioNit.controls['nitCliente'].invalid && FormularioNit.controls['nitCliente'].touched"
+        id="nitCliente" name="nitCliente" formControlName="nitCliente" />
+
+      <div
+        *ngIf="FormularioNit.controls['nitCliente'].invalid && (FormularioNit.controls['nitCliente'].dirty || FormularioNit.controls['nitCliente'].touched)"
+        class="invalid-feedback">
+        <div>
+          Ingrese el NIT!
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary" [disabled]="FormularioNit.invalid " (click)="buscarCliente()">Buscar</button>
+
+
+
+
+  </form>
+
+
+  <div *ngIf="clienteSinUsuario">
+    el cliente aun no tiene un usuario, Necesita Crearlo
+
+    <a routerLink="/Proyecto1/Menu" class="link-dark" target="_blank">Crear Cliente Usuario</a><br><br>
+
+  </div>
+  <div *ngIf="nitValido && cliente.tipo!=null">
+    El usuario tiene {{cliente.puntos}} puntos
+    <br>
+    Puntos a Usar
+    <div class="form-group">
+      <label for="inputAddress">Cantidad de puntos a usar</label>
+      <input   [(ngModel)]="puntosAUsar" class="form-control" type="number" id="cantidadPuntos" name="cantidadPuntos"
+          />
+    </div>
+
+
+  </div>
+
+
+</div>
+<hr>
+
+
+
+
+
+
+<br>
+<br>
+<br>
+
+
+<button (click)="finalizarCompra()" [disabled]="!nitValido || carrito.length==0 "
+  class="btn btn-outline-success">Finalizar compra</button>

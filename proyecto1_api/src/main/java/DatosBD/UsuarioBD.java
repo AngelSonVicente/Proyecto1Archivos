@@ -28,7 +28,7 @@ public class UsuarioBD {
        conexion = conexionPG.getConexion();
     }
     
-    public static final String SELECT_BY_ID="SELECT * FROM empleados.usuarios WHERE codigo=?;";  
+    private static final String SELECT_BY_ID="SELECT * FROM empleados.usuarios WHERE codigo=?;";  
     
     
     public  Usuario getUsuarioCodigo(int codigo) {

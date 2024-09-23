@@ -51,7 +51,7 @@ const routes: Routes = [
     component: ModuloCajeroComponent 
   },
   {
-    path:"Proyecto2/Cajero",
+    path:"Proyecto1/Cajero",
     title:"Usuario",
     children: rutasCajero,
   
