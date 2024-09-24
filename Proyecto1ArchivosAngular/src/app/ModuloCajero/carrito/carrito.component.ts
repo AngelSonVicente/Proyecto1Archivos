@@ -117,6 +117,7 @@ export class CarritoComponent implements OnInit {
     this.venta.codigoCajero=this.usuario.codigo;
     this.venta.nitCliente=this.FormularioNit.get("nitCliente")?.value;
     this.venta.productos=this.carrito;
+    this.venta.codigoSucursal=this.usuario.codigoSucursal;
 
     this.ventaService.logear(this.venta).subscribe(
       venta => {

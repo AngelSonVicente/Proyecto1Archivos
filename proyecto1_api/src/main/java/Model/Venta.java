@@ -19,11 +19,12 @@ public class Venta {
     private float total;
     private int puntosUsados;
     private List<Productos> productos;
+    private int codigoSucursal;
 
     public Venta() {
     }
 
-    public Venta(int codigo, int nitCliente, int codigoCajero, String fecha, float total, int puntosUsados, List<Productos> productos) {
+    public Venta(int codigo, int nitCliente, int codigoCajero, String fecha, float total, int puntosUsados, List<Productos> productos, int codigoSucursal) {
         this.codigo = codigo;
         this.nitCliente = nitCliente;
         this.codigoCajero = codigoCajero;
@@ -31,6 +32,7 @@ public class Venta {
         this.total = total;
         this.puntosUsados = puntosUsados;
         this.productos = productos;
+        this.codigoSucursal = codigoSucursal;
     }
 
     public int getCodigo() {
@@ -89,13 +91,19 @@ public class Venta {
         this.productos = productos;
     }
 
+    public int getCodigoSucursal() {
+        return codigoSucursal;
+    }
+
+    public void setCodigoSucursal(int codigoSucursal) {
+        this.codigoSucursal = codigoSucursal;
+    }
+
     @Override
     public String toString() {
-        return "Venta{" + "codigo=" + codigo + ", nitCliente=" + nitCliente + ", codigoCajero=" + codigoCajero + ", fecha=" + fecha + ", total=" + total + ", puntosUsados=" + puntosUsados + ", productos=" + productos + '}';
+        return "Venta{" + "codigo=" + codigo + ", nitCliente=" + nitCliente + ", codigoCajero=" + codigoCajero + ", fecha=" + fecha + ", total=" + total + ", puntosUsados=" + puntosUsados + ", productos=" + productos + ", codigoSucursal=" + codigoSucursal + '}';
     }
     
-     
     
-    
-    
+
 }

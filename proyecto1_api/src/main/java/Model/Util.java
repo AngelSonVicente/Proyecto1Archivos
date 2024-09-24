@@ -1,5 +1,6 @@
 package Model;
 
+import java.lang.reflect.Array;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
@@ -28,6 +29,61 @@ public class Util {
         }
     }
     
+      
+      
+      public Integer[] getIdProductos(Venta venta){
+          
+          
+          
+          Integer[] productosID =new Integer[venta.getProductos().size()];
+          
+          Integer[] productos={};
+          
+          for (int i = 0; i < venta.getProductos().size(); i++) {
+              productosID[i] = venta.getProductos().get(i).getCodigoProducto();
+          }
+          
+          
+      
+      return productosID;
+      }
+      
+      
+      
+      public Integer[] getCantidadProductos(Venta venta){
+          
+          
+          
+          Integer[] productosCantidad = new Integer[venta.getProductos().size()];
+          
+          
+          for (int i = 0; i < venta.getProductos().size(); i++) {
+              productosCantidad[i] = 1;
+          }
+          
+          
+      
+      return productosCantidad;
+      }
+      
+      
+   
+      public  Array crearArreglo(Class<?> tipo, int longitud) {
+        
+        Array arreglo = (Array) Array.newInstance(tipo, longitud);
+
+        
+        for (int i = 0; i < longitud; i++) {
+            Array.set(arreglo, i, i + 1);  // En este caso, solo está llenando el arreglo con los números 1, 2, 3, etc.
+        }
+
+    
+        return arreglo;
+    }
+    
+    
+    
+      
 
     public static int[][] BuscarRepetidos(int[] ids, int[] cantidades) {
         int n = ids.length;

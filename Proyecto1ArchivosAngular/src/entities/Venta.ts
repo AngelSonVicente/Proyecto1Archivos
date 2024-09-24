@@ -8,4 +8,5 @@ export class Venta {
     total!: number;
     puntosUsados!:number;
     productos!:Productos[];
+    codigoSucursal!:number;
 }

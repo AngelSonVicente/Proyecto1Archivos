@@ -4,8 +4,10 @@
  */
 package Service;
 
+import Controller.VentasController;
 import Model.JsonUtil;
 import Model.Venta;
+import exceptions.InvalidDataException;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
@@ -14,25 +16,33 @@ import java.io.IOException;
  * @author MSI
  */
 public class VentaService {
-    
-    JsonUtil jsonUtil = new JsonUtil();
-    public void ProcesarSolicitud(String body, HttpServletResponse response) throws IOException{
-    
+
+    private JsonUtil jsonUtil = new JsonUtil();
+    private VentasController ventasController = new VentasController();
+
+    public void ProcesarSolicitud(String body, HttpServletResponse response) throws IOException, InvalidDataException {
+
         Venta venta = (Venta) jsonUtil.JsonStringAObjeto(body, Venta.class);
         
-        System.out.println("VENTA: " + venta.toString());
+        validar(venta);
+
+        ventasController.realizarVenta(venta);
+        
+        jsonUtil.EnviarJson(response, venta);
         
         
-        
-        
-    
     }
-    
-    
-    public void validar(){
-    
-    
+
+    public void validar(Venta venta) throws InvalidDataException {
+
+        if (venta.getCodigoCajero() <= 0
+                || venta.getCodigoSucursal() <= 0
+                || venta.getProductos() == null) {
+
+            throw new InvalidDataException("Datos incompletos d ela venta, porfavor de revisar los datos");
+
+        }
+
     }
-    
-    
+
 }
