@@ -22,6 +22,13 @@ export class ClienteService {
         return this.httpClient.get<Cliente>(this.API_URL + "Cliente?nitCliente="+nit);
     }
 
+
+    public crearCliente(cliente: Cliente): Observable<Cliente> {
+
+        console.log('connectando con el BE: ' + cliente);
+        
+        return this.httpClient.post<Cliente>(this.API_URL + "Cliente", cliente);
+    }
     
  
 }

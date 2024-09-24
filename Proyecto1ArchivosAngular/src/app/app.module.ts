@@ -16,6 +16,7 @@ import { ModuloCajeroComponent } from './ModuloCajero/modulo-cajero/modulo-cajer
 import { RealizarVentaComponent } from './ModuloCajero/realizar-venta/realizar-venta.component';
 import { ProductosComponent } from './ModuloCajero/productos/productos.component';
 import { CarritoComponent } from './ModuloCajero/carrito/carrito.component';
+import { CrearClienteComponent } from './ModuloCajero/crear-cliente/crear-cliente.component';
 
 
 
@@ -29,7 +30,8 @@ import { CarritoComponent } from './ModuloCajero/carrito/carrito.component';
     ModuloCajeroComponent,
     RealizarVentaComponent,
     ProductosComponent,
-    CarritoComponent
+    CarritoComponent,
+    CrearClienteComponent
   ],
   imports: [
     BrowserModule,

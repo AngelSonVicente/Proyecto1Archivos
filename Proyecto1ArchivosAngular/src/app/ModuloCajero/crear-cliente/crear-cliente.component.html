@@ -1,0 +1,103 @@
+<div class="container col-xl-10 col-xxl-8 px-6 py-0">
+    
+    <div class="row align-items-center g-lg-5 py-5">
+        
+        <div class="col-md-12">
+            
+            <div class="alert alert-success" role="alert" *ngIf="saved">
+                Cliente Creado Exitosamente. <br />
+            
+                
+                Ya puede cerrar la venta!
+
+            </div>
+
+            <div class="alert alert-danger" role="alert" *ngIf="error">
+                
+                Ya existe un usuario con el mismo nit o los datos estan incorrectos!
+                <br>
+                Por favor, revise los datos!
+
+            </div>
+            <div class="col-md-10 mx-auto col-lg-6">
+                <h1 class="display-10 fw-bold lh-05 text-body-emphasis mb-50">Creacion Usuario Cliente</h1>
+    
+            </div> 
+
+            
+            <form [formGroup]="FormularioCliente" (ngSubmit)="submit()">
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="inputAddress">NIT</label>
+                        <input class="form-control" type="number"
+                            [class.is-invalid]="FormularioCliente.controls['nit'].invalid && FormularioCliente.controls['nit'].touched"
+                            id="nit" name="nit" formControlName="nit" />
+
+                        <div *ngIf="FormularioCliente.controls['nit'].invalid && (FormularioCliente.controls['nit'].dirty || FormularioCliente.controls['nit'].touched)"
+                            class="invalid-feedback">
+                            <div>
+                                Por favor, ingrese el nit!
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="inputAddress">Nombre</label>
+                        <input class="form-control"
+                            [class.is-invalid]="FormularioCliente.controls['nombre'].invalid && FormularioCliente.controls['nombre'].touched"
+                            id="nombre" name="nombre" formControlName="nombre" />
+
+                        <div *ngIf="FormularioCliente.controls['nombre'].invalid && (FormularioCliente.controls['nombre'].dirty || FormularioCliente.controls['nombre'].touched)"
+                            class="invalid-feedback">
+                            <div>
+                                Por favor ingrese el nombre
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+          
+                    
+
+
+                    <div class="form-group">
+                        <label for="inputAddress">Direccion</label>
+                        <input class="form-control"
+                            [class.is-invalid]="FormularioCliente.controls['direccion'].invalid && FormularioCliente.controls['direccion'].touched"
+                            id="direccion" name="direccion" formControlName="direccion" />
+
+                        <div *ngIf="FormularioCliente.controls['direccion'].invalid && (FormularioCliente.controls['direccion'].dirty || FormularioCliente.controls['direccion'].touched)"
+                            class="invalid-feedback">
+                            <div>
+                                Por favor ingrese el direccion
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="inputAddress">correo</label>
+                        <input class="form-control"
+                            [class.is-invalid]="FormularioCliente.controls['correo'].invalid && FormularioCliente.controls['correo'].touched"
+                            id="correo" name="correo" formControlName="correo" />
+
+                        <div *ngIf="FormularioCliente.controls['correo'].invalid && (FormularioCliente.controls['correo'].dirty || FormularioCliente.controls['correo'].touched)"
+                            class="invalid-feedback">
+                            <div>
+                                Por favor ingrese un correo
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+                    <button class="btn btn-success" type="submit" [disabled]="FormularioCliente.invalid">Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>

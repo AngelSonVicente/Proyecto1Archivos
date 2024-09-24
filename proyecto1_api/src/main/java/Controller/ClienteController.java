@@ -6,6 +6,7 @@ package Controller;
 
 import DatosBD.ClienteBD;
 import Model.Cliente;
+import java.sql.SQLException;
 
 /**
  *
@@ -22,5 +23,10 @@ public class ClienteController {
     return clienteBD.getClienteNit(nit);
     }
     
+    public Cliente crearCliente (Cliente cliente) throws SQLException{
+    
+        return clienteBD.crearCliente(cliente);
+    
+    }
     
 }
