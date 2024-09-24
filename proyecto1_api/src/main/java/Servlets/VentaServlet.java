@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -34,7 +35,7 @@ public class VentaServlet extends HttpServlet {
 
         try {
             ventaService.ProcesarSolicitud(body, response);
-        } catch (InvalidDataException ex) {
+        } catch (InvalidDataException | SQLException ex) {
 
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             System.out.println(ex);

@@ -6,6 +6,7 @@ package Controller;
 
 import DatosBD.VentasBD;
 import Model.Venta;
+import java.sql.SQLException;
 
 /**
  *
@@ -15,7 +16,7 @@ public class VentasController {
     private VentasBD ventaBD = new VentasBD();
     
     
-    public Venta realizarVenta(Venta venta){
+    public Venta realizarVenta(Venta venta) throws SQLException{
     
       return  ventaBD.realizarventa(venta);
     }

@@ -10,6 +10,7 @@ import Model.Venta;
 import exceptions.InvalidDataException;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  *
@@ -20,7 +21,7 @@ public class VentaService {
     private JsonUtil jsonUtil = new JsonUtil();
     private VentasController ventasController = new VentasController();
 
-    public void ProcesarSolicitud(String body, HttpServletResponse response) throws IOException, InvalidDataException {
+    public void ProcesarSolicitud(String body, HttpServletResponse response) throws IOException, InvalidDataException, SQLException {
 
         Venta venta = (Venta) jsonUtil.JsonStringAObjeto(body, Venta.class);
         

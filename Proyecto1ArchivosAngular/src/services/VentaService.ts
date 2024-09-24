@@ -12,7 +12,7 @@ export class VentaSerivice {
 
     constructor(private httpClient: HttpClient) {}
 
-    public logear(venta: Venta): Observable<Venta> {
+    public realizarVenta(venta: Venta): Observable<Venta> {
 
         console.log('connectando con el BE: ' + venta);
         

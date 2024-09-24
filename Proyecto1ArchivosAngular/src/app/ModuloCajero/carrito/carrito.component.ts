@@ -20,7 +20,12 @@ export class CarritoComponent implements OnInit {
 
   usuario!:Usuario;
 
+  codigoFact!:number;
   venta!:Venta;
+
+  
+  error:boolean=false;
+  creado:boolean=false;
 
   puntosAUsar:number=0;
   nitValido:boolean=false;
@@ -119,13 +124,33 @@ export class CarritoComponent implements OnInit {
     this.venta.productos=this.carrito;
     this.venta.codigoSucursal=this.usuario.codigoSucursal;
 
-    this.ventaService.logear(this.venta).subscribe(
+    this.ventaService.realizarVenta(this.venta).subscribe(
       venta => {
+
+       this.error=false;
+       this.creado=true;
+
+       this.FormularioNit.reset();
+       this.FormularioTarjeta.reset();
+       
+       this.productoService.limpiarCarrito();
+       this.puntosAUsar=0;
+ 
+ 
+       alert(`Compra realizada! Total: Q${this.total}`);
+ 
+       this.carrito = [];
+       this.total = 0;
 
 
       },
       error => {
         console.log('Error: ', error);
+
+        this.error=true;
+        this.creado=false;
+
+        this.puntosAUsar=0;
      
       }
     );
@@ -135,16 +160,10 @@ export class CarritoComponent implements OnInit {
 
 
 
-    this.productoService.limpiarCarrito();
- 
- 
- 
-    this.carrito = [];
-    this.total = 0;
+  
 
     
-    alert(`Compra realizada! Total: Q${this.total}`);
- 
+  
   }
 
   efectivo(){
@@ -156,6 +175,8 @@ export class CarritoComponent implements OnInit {
   }
   cF(){
     this.CF=true;
+    this.FormularioNit.reset();
+    this.puntosAUsar=0;
     this.nitValido=true;
   }
   nit(){
@@ -181,6 +202,7 @@ export class CarritoComponent implements OnInit {
         this.nitValido=false;
       }
     });
+    this.puntosAUsar=0;
 
     
   }

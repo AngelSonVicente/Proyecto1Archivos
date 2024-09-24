@@ -32,10 +32,10 @@ public class VentasBD {
       // (nit_cliente, codigo_cajero, puntos_a_usar, listaProductos, ListaUnidades, codigo_sucursal);   
     private static final String INSERT_VENTA="SELECT ventas.procesar_factura(?, ?, ?, ?, ?, ?);";
     
-      public Venta realizarventa(Venta venta) {
+      public Venta realizarventa(Venta venta) throws SQLException {
      
-          try {
-            PreparedStatement insert = conexion.prepareStatement(INSERT_VENTA, PreparedStatement.RETURN_GENERATED_KEYS);
+       
+          PreparedStatement insert = conexion.prepareStatement(INSERT_VENTA, PreparedStatement.RETURN_GENERATED_KEYS);
             insert.setInt(1, venta.getNitCliente());
             insert.setInt(2, venta.getCodigoCajero());
             insert.setInt(3, venta.getPuntosUsados());
@@ -49,26 +49,15 @@ public class VentasBD {
             
             System.out.println("------------Creando VENTA------------");
             System.out.println(insert.toString());
-            int affectedRows = insert.executeUpdate();
-
-            if (affectedRows == 0) {
-                throw new SQLException("La inserción no tuvo éxito, ningún ID generado.");
+            ResultSet resultset = insert.executeQuery();
+            if(resultset.next()){
+            
+                return venta;
             }
-
-                try (ResultSet generatedKeys = insert.getGeneratedKeys()) {
-                if (generatedKeys.next()) {
-                    String generatedID = generatedKeys.getString(1);
-                    System.out.println("categoria Creada");
-                    venta.setCodigo(Integer.parseInt(generatedID));
-                    return venta;
-                } else {
-                    throw new SQLException("La inserción no tuvo éxito, ningún ID generado.");
-                }
-            }
+          
+            
                 
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+      
 
         return null;
     }
