@@ -3,6 +3,7 @@ export class Productos {
     nombre!: string;
     descripcion!: string;
     categoria!: string;
+    plataforma!:string;
     sub_categoria!: string;
     precio!:number;
     existencias!:number;

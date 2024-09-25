@@ -1,0 +1,121 @@
+<div class="container col-xl-10 col-xxl-8 px-6 py-0">
+    
+    <div class="row align-items-center g-lg-5 py-5">
+        
+        <div class="col-md-12">
+            
+            <div class="alert alert-success" role="alert" *ngIf="saved">
+                Se ha creado el producto Correctamente. <br />
+                Codigo del nuevo producto: {{producto.codigoProducto  }}
+
+            </div>
+
+            <div class="alert alert-danger" role="alert" *ngIf="error">
+                
+               Hubo un error al crear el producto, por favor revise los datos.
+
+            </div>
+            <div class="col-md-10 mx-auto col-lg-6">
+                <h1 class="display-10 fw-bold lh-05 text-body-emphasis mb-50">Creacion de Producto</h1>
+    
+            </div> 
+
+            
+            <form [formGroup]="FormularioProducto" (ngSubmit)="submit()">
+                <div class="form-row">
+
+                
+
+
+
+                    <div class="form-group">
+                        <label for="inputAddress">Nombre</label>
+                        <input class="form-control"
+                            [class.is-invalid]="FormularioProducto.controls['nombre'].invalid && FormularioProducto.controls['nombre'].touched"
+                            id="nombre" name="nombre" formControlName="nombre" />
+
+                        <div *ngIf="FormularioProducto.controls['nombre'].invalid && (FormularioProducto.controls['nombre'].dirty || FormularioProducto.controls['nombre'].touched)"
+                            class="invalid-feedback">
+                            <div>
+                                Por favor ingrese el nombre
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputAddress">Descripcion</label>
+                        <textarea class="form-control resizable"  
+                            [class.is-invalid]="FormularioProducto.controls['descripcion'].invalid && FormularioProducto.controls['descripcion'].touched"
+                            id="descripcion" name="descripcion" formControlName="descripcion" ></textarea>
+
+                        <div *ngIf="FormularioProducto.controls['descripcion'].invalid && (FormularioProducto.controls['descripcion'].dirty || FormularioProducto.controls['descripcion'].touched)"
+                            class="invalid-feedback">
+                            <div>
+                                Por favor, ingrese la descripcion!
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+          
+                    
+
+
+                    <div class="form-group">
+                        <label for="inputAddress">Categoria</label>
+                        <select class="form-control"
+                            [class.is-invalid]="FormularioProducto.controls['categoria'].invalid && FormularioProducto.controls['categoria'].touched"
+                            id="categoria" name="categoria" formControlName="categoria">
+                            <option value="Videojuego">Videojuego</option>
+                            <option value="Consola">Consola</option>
+                        </select>
+
+                        <div *ngIf="FormularioProducto.controls['categoria'].invalid && (FormularioProducto.controls['categoria'].dirty || FormularioProducto.controls['categoria'].touched)"
+                            class="invalid-feedback">
+                            <div>
+                                Por favor seleccione un una categoria
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="inputAddress">SubCategoria</label>
+                        <input class="form-control"
+                            [class.is-invalid]="FormularioProducto.controls['sub_categoria'].invalid && FormularioProducto.controls['sub_categoria'].touched"
+                            id="sub_categoria" name="sub_categoria" formControlName="sub_categoria" />
+
+                        <div *ngIf="FormularioProducto.controls['sub_categoria'].invalid && (FormularioProducto.controls['sub_categoria'].dirty || FormularioProducto.controls['sub_categoria'].touched)"
+                            class="invalid-feedback">
+                            <div>
+                                Por favor ingrese la SubCategoria!
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputAddress">Plataforma</label>
+                        <input class="form-control"
+                            [class.is-invalid]="FormularioProducto.controls['plataforma'].invalid && FormularioProducto.controls['plataforma'].touched"
+                            id="plataforma" name="plataforma" formControlName="plataforma" />
+
+                        <div *ngIf="FormularioProducto.controls['plataforma'].invalid && (FormularioProducto.controls['plataforma'].dirty || FormularioProducto.controls['plataforma'].touched)"
+                            class="invalid-feedback">
+                            <div>
+                                Por favor ingrese la Plataforma!
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <br />
+                    <button class="btn btn-success" type="submit" [disabled]="FormularioProducto.invalid">Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>

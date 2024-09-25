@@ -17,6 +17,9 @@ import { RealizarVentaComponent } from './ModuloCajero/realizar-venta/realizar-v
 import { ProductosComponent } from './ModuloCajero/productos/productos.component';
 import { CarritoComponent } from './ModuloCajero/carrito/carrito.component';
 import { CrearClienteComponent } from './ModuloCajero/crear-cliente/crear-cliente.component';
+import { ModuloAdminComponent } from './ModuloAdmin/modulo-admin/modulo-admin.component';
+import { ProductosExistentesComponent } from './ModuloAdmin/GestionProductos/productos-existentes/productos-existentes.component';
+import { CrearProductosComponent } from './ModuloAdmin/GestionProductos/crear-productos/crear-productos.component';
 
 
 
@@ -31,7 +34,10 @@ import { CrearClienteComponent } from './ModuloCajero/crear-cliente/crear-client
     RealizarVentaComponent,
     ProductosComponent,
     CarritoComponent,
-    CrearClienteComponent
+    CrearClienteComponent,
+    ModuloAdminComponent,
+    ProductosExistentesComponent,
+    CrearProductosComponent
   ],
   imports: [
     BrowserModule,

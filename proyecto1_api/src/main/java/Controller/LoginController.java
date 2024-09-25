@@ -29,6 +29,7 @@ public class LoginController {
         System.out.println("contra ingresada: " + ContraEncriptada);
         System.out.println("usuario ingresado: " + codigo);
         System.out.println("contra : " + Contra);
+        System.out.println("contra : " + Contra);
         
 
         if (ContraEncriptada.equals(Contra)) {

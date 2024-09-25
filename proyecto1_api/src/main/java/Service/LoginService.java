@@ -32,6 +32,7 @@ public class LoginService {
         System.out.println("Tipo de usuario: " + UsuarioFE.getTipo());
         System.out.println("usuario de usuario: " + UsuarioFE.getUsuario());
         System.out.println("contra de usuario: " + UsuarioFE.getPassword());
+        System.out.println("Tipo: " + UsuarioFE.getTipo());
     
         Usuario usuario = new Usuario();
 

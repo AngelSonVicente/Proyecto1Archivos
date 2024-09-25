@@ -54,7 +54,7 @@ export class LoginComponent {
           this.invitado = false;
           console.log("Tipo de Usuario en el Local Storage: " + usuario.tipo);
           if (usuario.tipo == "admin") {
-            this.router.navigate(['/Proyecto2/Modulo/Administrador']);
+            this.router.navigate(['Proyecto1/Modulo/Administrador']);
 
           }
 
@@ -67,16 +67,10 @@ export class LoginComponent {
 
           }
 
-          if (usuario.tipo == "Invitado") {
-            this.router.navigate(['Proyecto2/Modulo/Usuario']);
-
-          }
-          if(usuario.tipo=="Empleador"){
-
-            
-
-
-          }
+       
+          
+        
+          
 
      
 

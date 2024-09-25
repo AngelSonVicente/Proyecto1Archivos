@@ -7,6 +7,9 @@ import { RealizarVentaComponent } from './ModuloCajero/realizar-venta/realizar-v
 import { ProductosComponent } from './ModuloCajero/productos/productos.component';
 import { CarritoComponent } from './ModuloCajero/carrito/carrito.component';
 import { CrearClienteComponent } from './ModuloCajero/crear-cliente/crear-cliente.component';
+import { ModuloAdminComponent } from './ModuloAdmin/modulo-admin/modulo-admin.component';
+import { ProductosExistentesComponent } from './ModuloAdmin/GestionProductos/productos-existentes/productos-existentes.component';
+import { CrearProductosComponent } from './ModuloAdmin/GestionProductos/crear-productos/crear-productos.component';
 
 const rutasCajero = [
   {
@@ -34,6 +37,23 @@ const rutasCajero = [
 
 
 ]
+const rutasAdmin = [
+
+  {
+    path: 'GestionProductos',
+    title: 'Gestion Productos',
+    component: ProductosExistentesComponent
+  },
+  {
+    path: 'CrearProducto',
+    title: 'Crear Producto',
+    component: CrearProductosComponent
+  },
+  
+
+
+
+]
 
 const routes: Routes = [
   {
@@ -57,9 +77,21 @@ const routes: Routes = [
     component: ModuloCajeroComponent 
   },
   {
+    path: 'Proyecto1/Modulo/Administrador',
+    title: "Modulo Administrador",
+    component: ModuloAdminComponent 
+  },
+
+  {
     path:"Proyecto1/Cajero",
     title:"Usuario",
     children: rutasCajero,
+  
+  },
+  {
+    path:"Proyecto1/Administrador",
+    title:"Administrador",
+    children: rutasAdmin,
   
   },
   
