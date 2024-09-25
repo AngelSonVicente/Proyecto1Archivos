@@ -20,6 +20,7 @@ import { CrearClienteComponent } from './ModuloCajero/crear-cliente/crear-client
 import { ModuloAdminComponent } from './ModuloAdmin/modulo-admin/modulo-admin.component';
 import { ProductosExistentesComponent } from './ModuloAdmin/GestionProductos/productos-existentes/productos-existentes.component';
 import { CrearProductosComponent } from './ModuloAdmin/GestionProductos/crear-productos/crear-productos.component';
+import { CrearEmpleadosComponent } from './ModuloAdmin/GestionEmpleados/crear-empleados/crear-empleados.component';
 
 
 
@@ -37,7 +38,8 @@ import { CrearProductosComponent } from './ModuloAdmin/GestionProductos/crear-pr
     CrearClienteComponent,
     ModuloAdminComponent,
     ProductosExistentesComponent,
-    CrearProductosComponent
+    CrearProductosComponent,
+    CrearEmpleadosComponent
   ],
   imports: [
     BrowserModule,

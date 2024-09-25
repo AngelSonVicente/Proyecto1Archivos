@@ -4,7 +4,6 @@
  */
 package DatosBD;
 
-
 import DatosBD.ConexionBD;
 import Model.Usuario;
 import Model.Util;
@@ -19,19 +18,19 @@ import java.util.Optional;
  * @author MSI
  */
 public class UsuarioBD {
-
-    Connection conexion=null;
+    
+    Connection conexion = null;
     
     public UsuarioBD() {
-       
+        
         ConexionPG conexionPG = new ConexionPG();
-       conexion = conexionPG.getConexion();
+        conexion = conexionPG.getConexion();
     }
     
-    private static final String SELECT_BY_ID="SELECT * FROM empleados.usuarios WHERE codigo=?;";  
+    private static final String SELECT_BY_ID = "SELECT * FROM empleados.usuarios WHERE codigo=?;";
+    private static final String CREAR_USUARIO = "SELECT empleados.crear_empleados(?,?,?,?,?,?,?,?)";
     
-    
-    public  Usuario getUsuarioCodigo(int codigo) {
+    public Usuario getUsuarioCodigo(int codigo) {
         // validateCarnet not null
         try {
             PreparedStatement select = conexion.prepareStatement(SELECT_BY_ID);
@@ -39,34 +38,48 @@ public class UsuarioBD {
             ResultSet resultset = select.executeQuery();
             System.out.println("----------------------------------------------------");
             System.out.println(select.toString());
-
+            
             if (resultset.next()) {
                 return new Usuario(resultset.getInt("codigo"),
                         resultset.getString("nombre"), resultset.getString("usuario"),
-                        resultset.getString("correo"), null,resultset.getString("tipo"),
+                        resultset.getString("correo"), null, resultset.getString("tipo"),
                         resultset.getInt("codigo_sucursal"), resultset.getInt("codigo_caja"), resultset.getInt("codigo_bodega")
-                        );
+                );
             }
-
+            
             return null;
         } catch (SQLException ex) {
             // TODO pendiente manejo
             ex.printStackTrace();
         }
-
+        
         return null;
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public Usuario crearUsuario(Usuario usuario) throws SQLException {
+        
+        PreparedStatement insert = conexion.prepareStatement(CREAR_USUARIO);
+        insert.setString(1, usuario.getTipo());
+        insert.setString(2, usuario.getNombre());
+        insert.setString(3, usuario.getUsuario());
+        insert.setString(4, Util.Encriptar(usuario.getPassword()));
+        insert.setString(5, usuario.getCorreo());
+        insert.setInt(6, usuario.getCodigoBodega());
+        insert.setInt(7, usuario.getCodigoSucursal());
+        insert.setInt(8, usuario.getCodigoCaja());
+        
+        System.out.println("------------Creando VENTA------------");
+        System.out.println(insert.toString());
+        ResultSet resultset = insert.executeQuery();
+        if (resultset.next()) {
+            
+            usuario.setCodigo(resultset.getInt(1));
+            
+            return usuario;
+        }
+        
+        return null;
+    }
 
 //    private Connection conexion;
 //
@@ -259,5 +272,4 @@ public class UsuarioBD {
 //
 //        return false;
 //    }
-
 }

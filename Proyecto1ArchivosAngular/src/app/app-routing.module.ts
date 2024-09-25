@@ -10,6 +10,7 @@ import { CrearClienteComponent } from './ModuloCajero/crear-cliente/crear-client
 import { ModuloAdminComponent } from './ModuloAdmin/modulo-admin/modulo-admin.component';
 import { ProductosExistentesComponent } from './ModuloAdmin/GestionProductos/productos-existentes/productos-existentes.component';
 import { CrearProductosComponent } from './ModuloAdmin/GestionProductos/crear-productos/crear-productos.component';
+import { CrearEmpleadosComponent } from './ModuloAdmin/GestionEmpleados/crear-empleados/crear-empleados.component';
 
 const rutasCajero = [
   {
@@ -48,6 +49,11 @@ const rutasAdmin = [
     path: 'CrearProducto',
     title: 'Crear Producto',
     component: CrearProductosComponent
+  },
+  {
+    path: 'CrearEmpleado',
+    title: 'Crear Empleados',
+    component: CrearEmpleadosComponent
   },
   
 

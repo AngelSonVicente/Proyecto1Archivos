@@ -6,6 +6,7 @@ package Controller;
 
 import DatosBD.SucursalBD;
 import Model.Productos;
+import Model.Sucursal;
 import java.util.List;
 
 
@@ -20,6 +21,11 @@ public class SucursalController {
    public List<Productos> getProductosSucursal(int codigo){
        return sucursalBD.getProductosSucursal(codigo);
    }
+   
+   public List<Sucursal> getSucursales(){
+       return sucursalBD.getSucursales();
+   }
+   
     
     
     

@@ -5,6 +5,7 @@
 package DatosBD;
 
 import Model.Productos;
+import Model.Sucursal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,29 +18,26 @@ import java.util.List;
  * @author MSI
  */
 public class SucursalBD {
-    
-    Connection conexion= null;
+
+    Connection conexion = null;
 
     public SucursalBD() {
         ConexionPG conexionPg = new ConexionPG();
         conexion = conexionPg.getConexion();
-    
-    
+
     }
-    
-    
-    private static final String SELECT_PRODCUTOS_SUCURSAL="SELECT * FROM sucursales.productos_sucursal WHERE codigo_sucursal=?";
-    
-    
-    
-        public List<Productos> getProductosSucursal(int codigo) {
+
+    private static final String SELECT_PRODCUTOS_SUCURSAL = "SELECT * FROM sucursales.productos_sucursal WHERE codigo_sucursal=?";
+    private static final String SELECT_SUCURSALES = "SELECT * FROM sucursales.sucursal ";
+
+    public List<Productos> getProductosSucursal(int codigo) {
         List<Productos> productos = new ArrayList<>();
         try {
-     
+
             PreparedStatement select = conexion.prepareStatement(SELECT_PRODCUTOS_SUCURSAL);
             select.setInt(1, codigo);
             System.out.println(select.toString());
-            
+
             ResultSet resultset = select.executeQuery();
             while (resultset.next()) {
                 productos.add(new Productos(
@@ -56,11 +54,36 @@ public class SucursalBD {
 
             System.out.println(ex);
         }
-            System.out.println("Productos"+productos);
+        System.out.println("Productos" + productos);
 
         return productos;
     }
-    
-    
-    
+
+    public List<Sucursal> getSucursales() {
+        List<Sucursal> sucursales = new ArrayList<>();
+        try {
+
+            PreparedStatement select = conexion.prepareStatement(SELECT_SUCURSALES);
+
+            System.out.println(select.toString());
+
+            ResultSet resultset = select.executeQuery();
+            while (resultset.next()) {
+                sucursales.add(new Sucursal(
+                        resultset.getInt("codigo"), resultset.getString("nombre"),
+                        resultset.getString("Direccion")
+                ));
+            }
+
+        } catch (SQLException ex) {
+            // TODO pendiente manejo
+            ex.printStackTrace();
+
+            System.out.println(ex);
+        }
+        System.out.println("Sucursales" + sucursales);
+
+        return sucursales;
+    }
+
 }

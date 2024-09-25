@@ -41,6 +41,15 @@ public class SucursalService {
         
 
     }
+    
+    public void getSucursales(HttpServletResponse response) throws IOException{
+        
+        jsonUtil.EnviarListaJson(response, sucursarController.getSucursales());
+    
+        
+        
+    }
+    
 
     private void validar(int codigo) throws InvalidDataException {
 
