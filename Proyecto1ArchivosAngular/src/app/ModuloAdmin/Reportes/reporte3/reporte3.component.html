@@ -1,0 +1,19 @@
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>Código </th>
+        <th>Nombre</th>
+
+        <th>Direccion ¿</th>
+
+        <th>Total </th>
+    </tr>
+    <tr *ngFor="let reporte of sucursales">
+        <td>{{reporte.codigo}}</td>
+        <td>{{reporte.nombre}}</td>
+        <td>{{reporte.direccion}}</td>
+        <td>{{reporte.total}}</td>
+
+
+
+    </tr>
+</table>

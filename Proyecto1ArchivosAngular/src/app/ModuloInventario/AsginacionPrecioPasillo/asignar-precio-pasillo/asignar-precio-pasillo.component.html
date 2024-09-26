@@ -22,7 +22,13 @@
                     Sub Categoria: {{ producto.sub_categoria}}<br>
                     Descripcion: {{ producto.descripcion}}<br>
                     Plataforma: {{ producto.plataforma}}<br>
+                   <div *ngIf="producto.precio>0">
+                    Precio Actual: {{ producto.precio}}<br>
+                    Pasillo Actual: {{ producto.pasillo}}<br>
+                   
 
+                   </div>
+                    
                 </div>
             </div>
     

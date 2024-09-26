@@ -18,6 +18,7 @@ import { ModuloInventarioComponent } from './ModuloInventario/modulo-inventario/
 import { ProductosPendientesComponent } from './ModuloInventario/AsginacionPrecioPasillo/productos-pendientes/productos-pendientes.component';
 import { AsignarPrecioPasilloComponent } from './ModuloInventario/AsginacionPrecioPasillo/asignar-precio-pasillo/asignar-precio-pasillo.component';
 import { ActualizarPrecioPasilloComponent } from './ModuloInventario/ActualizarPrecioPasillo/actualizar-precio-pasillo/actualizar-precio-pasillo.component';
+import { ReportesComponent } from './ModuloAdmin/Reportes/reportes/reportes.component';
 
 const rutasCajero = [
   {
@@ -99,6 +100,11 @@ const rutasAdmin = [
     path: 'CrearEmpleado',
     title: 'Crear Empleados',
     component: CrearEmpleadosComponent
+  },
+  {
+    path: 'Reportes',
+    title: 'Reportes',
+    component: ReportesComponent
   },
   
 ]

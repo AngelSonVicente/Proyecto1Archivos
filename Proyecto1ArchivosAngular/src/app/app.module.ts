@@ -30,6 +30,12 @@ import { ModuloInventarioComponent } from './ModuloInventario/modulo-inventario/
 import { ProductosPendientesComponent } from './ModuloInventario/AsginacionPrecioPasillo/productos-pendientes/productos-pendientes.component';
 import { AsignarPrecioPasilloComponent } from './ModuloInventario/AsginacionPrecioPasillo/asignar-precio-pasillo/asignar-precio-pasillo.component';
 import { ActualizarPrecioPasilloComponent } from './ModuloInventario/ActualizarPrecioPasillo/actualizar-precio-pasillo/actualizar-precio-pasillo.component';
+import { ReportesComponent } from './ModuloAdmin/Reportes/reportes/reportes.component';
+import { Reporte1Component } from './ModuloAdmin/Reportes/reporte1/reporte1.component';
+import { Reporte2Component } from './ModuloAdmin/Reportes/reporte2/reporte2.component';
+import { Reporte3Component } from './ModuloAdmin/Reportes/reporte3/reporte3.component';
+import { Reporte4Component } from './ModuloAdmin/Reportes/reporte4/reporte4.component';
+import { Reporte5Component } from './ModuloAdmin/Reportes/reporte5/reporte5.component';
 
 
 
@@ -58,6 +64,12 @@ import { ActualizarPrecioPasilloComponent } from './ModuloInventario/ActualizarP
     ProductosPendientesComponent,
     AsignarPrecioPasilloComponent,
     ActualizarPrecioPasilloComponent,
+    ReportesComponent,
+    Reporte1Component,
+    Reporte2Component,
+    Reporte3Component,
+    Reporte4Component,
+    Reporte5Component,
  
   ],
   imports: [

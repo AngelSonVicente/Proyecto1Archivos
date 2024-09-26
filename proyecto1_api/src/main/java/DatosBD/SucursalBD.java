@@ -30,7 +30,7 @@ public class SucursalBD {
     }
     Util util = new Util();
 
-    private static final String SELECT_PRODCUTOS_SUCURSAL = "SELECT * FROM sucursales.productos_sucursal WHERE codigo_sucursal=?";
+    private static final String SELECT_PRODCUTOS_SUCURSAL = "SELECT * FROM sucursales.productos_sucursal WHERE codigo_sucursal=? ";
     private static final String SELECT_SUCURSALES = "SELECT * FROM sucursales.sucursal ";
     private static final String INGRESAR_SUCURSAL = "SELECT sucursales.ingresar_productos_sucursal(?, ?, ?);";
     private static final String GET_PRODUCTOS_SIN_PRECIO = "SELECT * FROM sucursales.productos_sucursal WHERE codigo_sucursal=? AND precio is null AND pasillo is null ;";

@@ -1,0 +1,23 @@
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>Nit </th>
+        <th>Nombre Cliente</th>
+
+        <th>Direccion </th>
+
+        <th>Correo </th>
+        <th>Total Gastado </th>
+  
+    </tr>
+    <tr *ngFor="let reporte of reportes">
+        <td *ngIf="reporte.nit>0">{{reporte.nit}}</td>
+        <td *ngIf="reporte.nit>0">{{reporte.nombre}}</td>
+        <td *ngIf="reporte.nit>0">{{reporte.direccion}}</td>
+        <td *ngIf="reporte.nit>0">{{reporte.correo}}</td>
+        <td *ngIf="reporte.nit>0">{{reporte.gastado}}</td>
+
+        
+
+
+    </tr>
+</table>

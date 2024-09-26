@@ -1,0 +1,43 @@
+
+
+<div class="container " style="height: 100vh;">
+    <div class="card">
+        <div class="card-header">
+            <h1 class="text-center">Reportes Administrador</h1><br>
+        
+            <hr>
+        </div>
+        <div class="card-body">
+            <div class="card-head">
+            </div>
+
+            <br>
+            <div class="mt-2">
+                <select [(ngModel)]="selectedReport" class="form-select mx-auto" style="width: auto;">
+                    <option value="">Selecciona un reporte</option>
+                    <option value="1">Historial de Descuentos</option>
+                    <option value="2">Top 10 ventas más grandes</option>
+                    <option value="3">Top 2 sucursales que más dinero han ingresado</option>
+                    <option value="4">Top 10 artículos más vendidos.</option>
+                    <option value="5">Top 10 clientes que más dinero han gastado</option>
+                </select>
+            </div>
+          
+
+         
+
+            <br>
+
+            <app-reporte1 *ngIf="selectedReport === '1'"></app-reporte1>
+            <app-reporte2 *ngIf="selectedReport === '2'"></app-reporte2>
+            <app-reporte3 *ngIf="selectedReport === '3'"></app-reporte3>
+            <app-reporte4 *ngIf="selectedReport === '4'"></app-reporte4>
+            <app-reporte5 *ngIf="selectedReport === '5'"></app-reporte5>
+      
+      
+        </div>
+
+    </div>
+
+
+</div>
