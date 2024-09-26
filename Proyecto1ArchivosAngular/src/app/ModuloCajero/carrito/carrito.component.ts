@@ -130,15 +130,17 @@ export class CarritoComponent implements OnInit {
        this.error=false;
        this.creado=true;
 
+       alert(`Compra realizada! Total: Q${this.total-this.puntosAUsar}`);
+ 
        this.FormularioNit.reset();
        this.FormularioTarjeta.reset();
        
+ 
        this.productoService.limpiarCarrito();
        this.puntosAUsar=0;
  
  
-       alert(`Compra realizada! Total: Q${this.total}`);
- 
+      
        this.carrito = [];
        this.total = 0;
 
