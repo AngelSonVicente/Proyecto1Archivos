@@ -1,8 +1,14 @@
 
-<a routerLink="/Proyecto1/Inventario/ProductosPendientes" class="btn btn-outline-primary">Asignar Precio y pasillo</a>
-<br>
-<br>
-<br>
-<br>
-<a routerLink="/Proyecto1/Inventario/ActualizarPrecioPasillo" class="btn btn-outline-primary">Actualizar Precio y Pasillo</a>
-         
+<div class="image-container">
+    <a [routerLink]="['/Proyecto1/Inventario/ProductosPendientes']">
+        <img src="assets/Menu/precio.png" alt="Venta">
+        <p>Asignar Precio y Pasillo</p>
+    </a>
+    <a [routerLink]="['/Proyecto1/Inventario/ActualizarPrecioPasillo']">
+        <img src="assets/Menu/actualizarPrecio.png" alt="Administrador">
+        <p>Actualizar Precio y pasillo</p>
+    </a>
+
+
+
+</div>

@@ -12,6 +12,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,7 +30,12 @@ public class ReportesServlet extends HttpServlet {
         
         
         
-        reportes.procesarSolicitud(Integer.parseInt(request.getParameter("reporte")), request.getParameter("fecha1"), request.getParameter("fecha2"), response);
+        try {
+            reportes.procesarSolicitud(Integer.parseInt(request.getParameter("reporte")), request.getParameter("fecha1"), request.getParameter("fecha2"), response);
+        } catch (ParseException ex) {
+            
+            
+        }
         
         
     

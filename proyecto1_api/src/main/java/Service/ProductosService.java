@@ -50,7 +50,7 @@ public class ProductosService {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 
         } else {
-            jsonUtil.EnviarJson(response, productosController.crearProducto(producto));
+            jsonUtil.EnviarJson(response, producto);
         }
 
     }

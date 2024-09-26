@@ -1,14 +1,19 @@
 
-<a routerLink="/Proyecto1/Administrador/GestionProductos" class="btn btn-outline-primary">Gestion Productos</a>
-<br>
-<br>
-<br>
-<br>
-<a routerLink="/Proyecto1/Administrador/CrearEmpleado" class="btn btn-outline-primary">Crear Empleados</a>
-<br>
-<br>
 
-
-
-<a routerLink="/Proyecto1/Administrador/Reportes" class="btn btn-outline-primary">Reportes</a>
-         
+<div class="image-container">
+    <a [routerLink]="['/Proyecto1/Administrador/GestionProductos']">
+      <img src="assets/Admin/producto.png" alt="Cajero">
+      <p>Gestion de Productos</p>
+    </a>
+    <a [routerLink]="['/Proyecto1/Administrador/CrearEmpleado']">
+      <img src="assets/Admin/usuario.png" alt="Administrador">
+      <p>Crear Empleado</p>
+    </a>
+    <a [routerLink]="['/Proyecto1/Administrador/Reportes']">
+      <img src="assets/Admin/Reportes.png" alt="Bodegueros">
+      <p>Reportes</p>
+    </a>
+    
+    
+  </div>
+  

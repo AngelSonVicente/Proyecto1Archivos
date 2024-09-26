@@ -1,8 +1,16 @@
 
-<a routerLink="/Proyecto1/Bodega/IngresarProductosBodega" class="btn btn-outline-primary">Realizar venta</a>
-<br>
-<br>
-<br>
-<br>
-<a routerLink="/Proyecto1/Bodega/EnviarProductosSucursal" class="btn btn-outline-primary">Crear Usuario Cliente</a>
-         
+<div class="image-container">
+    <a [routerLink]="['/Proyecto1/Bodega/IngresarProductosBodega']">
+      <img src="assets/Menu/ingresarProductos.png" alt="Cajero">
+      <p>Ingresar Productos  a Bodega</p>
+    </a>
+    <a [routerLink]="['/Proyecto1/Bodega/EnviarProductosSucursal']">
+      <img src="assets/Menu/enviarProductos.png" alt="Enviar productos">
+      <p>Enviar Productos a Sucursal</p>
+    </a>
+ 
+    
+    
+    
+  </div>
+  

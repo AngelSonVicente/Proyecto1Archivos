@@ -8,6 +8,7 @@ import Controller.ReportesController;
 import Model.JsonUtil;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.ParseException;
 
 /**
  *
@@ -18,7 +19,7 @@ public class ReportesService {
     JsonUtil jsonUtil = new JsonUtil();
     ReportesController reportes = new ReportesController();
 
-    public void procesarSolicitud(int reporte, String fecha1, String fecha2, HttpServletResponse response) throws IOException {
+    public void procesarSolicitud(int reporte, String fecha1, String fecha2, HttpServletResponse response) throws IOException, ParseException {
 
         switch (reporte) {
             case 1:
