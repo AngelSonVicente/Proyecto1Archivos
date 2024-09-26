@@ -7,9 +7,11 @@ package Service;
 import Controller.SucursalController;
 import Model.JsonUtil;
 import Model.Productos;
+import Model.ProductosBodega;
 import exceptions.InvalidDataException;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +42,17 @@ public class SucursalService {
         
         
 
+    }
+    
+    public void agregarProductosSucursal(String body , HttpServletResponse response) throws IOException, SQLException{
+        
+        ProductosBodega productos = (ProductosBodega) jsonUtil.JsonStringAObjeto(body, ProductosBodega.class);
+        
+        jsonUtil.EnviarJson(response, sucursarController.agregarProductos(productos));
+        
+        
+    
+    
     }
     
     public void getSucursales(HttpServletResponse response) throws IOException{

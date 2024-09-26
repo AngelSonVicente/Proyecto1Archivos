@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import {Usuario} from 'src/entities/Usuario';
 import { Venta } from "src/entities/Venta";
 import { ProductosBodega } from "src/entities/ProductosBodega";
+import { Productos } from "src/entities/Productos";
 @Injectable({
     providedIn: 'root'
 })
@@ -20,5 +21,10 @@ export class ProductosBodegaService {
         return this.httpClient.post<ProductosBodega>(this.API_URL + "ProductosBodega", ingreso);
     }
 
+
+    public getProductosBodegas(codigoUsuario: number): Observable<Productos[]> {
+        console.log('connectando con el BE: ');
+        return this.httpClient.get<Productos[]>(this.API_URL + "ProductosBodega?codigoBodega="+codigoUsuario);
+    }
  
 }

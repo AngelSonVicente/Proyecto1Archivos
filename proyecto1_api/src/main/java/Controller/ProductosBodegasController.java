@@ -5,8 +5,10 @@
 package Controller;
 
 import DatosBD.ProductosBodegaBD;
+import Model.Productos;
 import Model.ProductosBodega;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  *
@@ -20,6 +22,12 @@ public class ProductosBodegasController {
     public ProductosBodega ingresarProductos(ProductosBodega productos) throws SQLException{
         
         return productosBodegaBD.ingresarProductos(productos);
+    
+    }
+    
+    public List<Productos> getProductos(int codigo){
+        return productosBodegaBD.getProductosBodega(codigo);
+    
     
     }
     

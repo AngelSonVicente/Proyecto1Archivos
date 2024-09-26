@@ -6,7 +6,9 @@ package Controller;
 
 import DatosBD.SucursalBD;
 import Model.Productos;
+import Model.ProductosBodega;
 import Model.Sucursal;
+import java.sql.SQLException;
 import java.util.List;
 
 
@@ -24,6 +26,11 @@ public class SucursalController {
    
    public List<Sucursal> getSucursales(){
        return sucursalBD.getSucursales();
+   }
+   
+   public ProductosBodega agregarProductos (ProductosBodega productos) throws SQLException{
+   
+   return sucursalBD.ingresarProductos(productos);
    }
    
     

@@ -5,7 +5,9 @@
 package DatosBD;
 
 import Model.Productos;
+import Model.ProductosBodega;
 import Model.Sucursal;
+import Model.Util;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,12 +26,13 @@ public class SucursalBD {
     public SucursalBD() {
         ConexionPG conexionPg = new ConexionPG();
         conexion = conexionPg.getConexion();
-
     }
+    Util util = new Util();
 
     private static final String SELECT_PRODCUTOS_SUCURSAL = "SELECT * FROM sucursales.productos_sucursal WHERE codigo_sucursal=?";
     private static final String SELECT_SUCURSALES = "SELECT * FROM sucursales.sucursal ";
-
+    private static final String INGRESAR_SUCURSAL = "SELECT sucursales.ingresar_productos_sucursal(?, ?, ?);";
+    
     public List<Productos> getProductosSucursal(int codigo) {
         List<Productos> productos = new ArrayList<>();
         try {
@@ -85,5 +88,31 @@ public class SucursalBD {
 
         return sucursales;
     }
+    
+    
+    
+        
+    public ProductosBodega ingresarProductos(ProductosBodega productos) throws SQLException {
+
+        PreparedStatement insert = conexion.prepareStatement(INGRESAR_SUCURSAL, PreparedStatement.RETURN_GENERATED_KEYS);
+        insert.setInt(1, productos.getCodigoBodega());
+
+        insert.setArray(2, conexion.createArrayOf("INTEGER", util.getIdProductos(productos)));
+        insert.setArray(3, conexion.createArrayOf("INTEGER", util.getCantidadProductos(productos)));
+
+        System.out.println("------------------------");
+        System.out.println(insert.toString());
+        ResultSet resultset = insert.executeQuery();
+        if (resultset.next()) {
+
+            return productos;
+        }
+
+        return null;
+    }
+    
+    
+    
+    
 
 }

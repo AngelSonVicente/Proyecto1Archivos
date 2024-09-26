@@ -4,6 +4,7 @@
  */
 package Servlets;
 
+import Model.JsonUtil;
 import Service.SucursalService;
 import exceptions.InvalidDataException;
 import jakarta.servlet.ServletException;
@@ -12,6 +13,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,6 +26,7 @@ import java.util.logging.Logger;
 public class ProductosSucursalServlet extends HttpServlet {
 
     SucursalService sucursalService = new SucursalService();
+    JsonUtil jsonUtil = new JsonUtil();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,6 +40,23 @@ public class ProductosSucursalServlet extends HttpServlet {
 
             System.out.println(ex);
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+
+        }
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String body = jsonUtil.getBody(request);
+
+        System.out.println(body);
+
+        try {
+            sucursalService.agregarProductosSucursal(body, response);
+        } catch (SQLException ex) {
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            
+            System.out.println(ex);
 
         }
 

@@ -24,6 +24,8 @@ import { CrearEmpleadosComponent } from './ModuloAdmin/GestionEmpleados/crear-em
 import { ModuloBodegaComponent } from './ModuloBodega/modulo-bodega/modulo-bodega.component';
 import { IngresarProductosBodegaComponent } from './ModuloBodega/IngresarProductos/ingresar-productos-bodega/ingresar-productos-bodega.component';
 import { CarritoIngresoBodegaComponent } from './ModuloBodega/IngresarProductos/carrito-ingreso-bodega/carrito-ingreso-bodega.component';
+import { EnviarProductosSucursalComponent } from './ModuloBodega/EnviarProductos/enviar-productos-sucursal/enviar-productos-sucursal.component';
+import { CarritoIngresoSucursalComponent } from './ModuloBodega/EnviarProductos/carrito-ingreso-sucursal/carrito-ingreso-sucursal.component';
 
 
 
@@ -45,7 +47,10 @@ import { CarritoIngresoBodegaComponent } from './ModuloBodega/IngresarProductos/
     CrearEmpleadosComponent,
     ModuloBodegaComponent,
     IngresarProductosBodegaComponent,
-    CarritoIngresoBodegaComponent
+    CarritoIngresoBodegaComponent,
+    EnviarProductosSucursalComponent,
+    CarritoIngresoSucursalComponent,
+ 
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ import { CrearProductosComponent } from './ModuloAdmin/GestionProductos/crear-pr
 import { CrearEmpleadosComponent } from './ModuloAdmin/GestionEmpleados/crear-empleados/crear-empleados.component';
 import { ModuloBodegaComponent } from './ModuloBodega/modulo-bodega/modulo-bodega.component';
 import { IngresarProductosBodegaComponent } from './ModuloBodega/IngresarProductos/ingresar-productos-bodega/ingresar-productos-bodega.component';
+import { EnviarProductosSucursalComponent } from './ModuloBodega/EnviarProductos/enviar-productos-sucursal/enviar-productos-sucursal.component';
 
 const rutasCajero = [
   {
@@ -45,6 +46,11 @@ const rutasBodega = [
     path: 'IngresarProductosBodega',
     title: 'Ingresar productos a bodega',
     component: IngresarProductosBodegaComponent
+  },
+  {
+    path: 'EnviarProductosSucursal',
+    title: 'Enviar productos a Sucursal',
+    component: EnviarProductosSucursalComponent
   },
 
  

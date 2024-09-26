@@ -20,6 +20,18 @@ public class ProductosBodegaService {
     JsonUtil jsonUtil = new JsonUtil();
     ProductosBodegasController productosController = new ProductosBodegasController();
 
+    public void getProductos(int codigo, HttpServletResponse response) throws IOException {
+
+        if (codigo > 0) {
+
+            jsonUtil.EnviarListaJson(response, productosController.getProductos(codigo));
+        } else {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+
+        }
+
+    }
+
     public void ingresarProductos(String body, HttpServletResponse response) throws IOException, SQLException {
 
         ProductosBodega productosBodega = (ProductosBodega) jsonUtil.JsonStringAObjeto(body, ProductosBodega.class);
