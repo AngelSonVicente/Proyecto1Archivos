@@ -11,6 +11,8 @@ import { ModuloAdminComponent } from './ModuloAdmin/modulo-admin/modulo-admin.co
 import { ProductosExistentesComponent } from './ModuloAdmin/GestionProductos/productos-existentes/productos-existentes.component';
 import { CrearProductosComponent } from './ModuloAdmin/GestionProductos/crear-productos/crear-productos.component';
 import { CrearEmpleadosComponent } from './ModuloAdmin/GestionEmpleados/crear-empleados/crear-empleados.component';
+import { ModuloBodegaComponent } from './ModuloBodega/modulo-bodega/modulo-bodega.component';
+import { IngresarProductosBodegaComponent } from './ModuloBodega/IngresarProductos/ingresar-productos-bodega/ingresar-productos-bodega.component';
 
 const rutasCajero = [
   {
@@ -35,6 +37,18 @@ const rutasCajero = [
     component: CrearClienteComponent
   },
 
+
+
+]
+const rutasBodega = [
+  {
+    path: 'IngresarProductosBodega',
+    title: 'Ingresar productos a bodega',
+    component: IngresarProductosBodegaComponent
+  },
+
+ 
+  
 
 
 ]
@@ -87,7 +101,18 @@ const routes: Routes = [
     title: "Modulo Administrador",
     component: ModuloAdminComponent 
   },
+  {
+    path: 'Proyecto1/Modulo/Bodega',
+    title: "Modulo Bodega",
+    component: ModuloBodegaComponent 
+  },
 
+  {
+    path:"Proyecto1/Bodega",
+    title:"Bodega",
+    children: rutasBodega,
+  
+  },
   {
     path:"Proyecto1/Cajero",
     title:"Usuario",

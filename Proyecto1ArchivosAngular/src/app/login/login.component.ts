@@ -67,6 +67,15 @@ export class LoginComponent {
 
           }
 
+          if (usuario.tipo == "bodeguero") {
+
+          
+              this.router.navigate(['Proyecto1/Modulo/Bodega']);
+            
+
+
+          }
+
        
           
         

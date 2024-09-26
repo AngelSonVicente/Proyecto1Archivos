@@ -40,6 +40,9 @@ export class ProductosComponent implements OnInit {
   }
 
   agregarAlCarrito(producto: Productos): void {
+
+
+    
     this.productoService.agregarAlCarrito(producto);
     alert(`${producto.nombre} agregado al carrito!`);
   }

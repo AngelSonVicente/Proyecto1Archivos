@@ -9,8 +9,7 @@ import java.util.Date;
 
 public class Util {
 
-    
-      public  boolean NoHaAlcanzadoFechaLimite(String fechalimite) {
+    public boolean NoHaAlcanzadoFechaLimite(String fechalimite) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
@@ -28,62 +27,67 @@ public class Util {
             return false;
         }
     }
-    
-      
-      
-      public Integer[] getIdProductos(Venta venta){
-          
-          
-          
-          Integer[] productosID =new Integer[venta.getProductos().size()];
-          
-          Integer[] productos={};
-          
-          for (int i = 0; i < venta.getProductos().size(); i++) {
-              productosID[i] = venta.getProductos().get(i).getCodigoProducto();
-          }
-          
-          
-      
-      return productosID;
-      }
-      
-      
-      
-      public Integer[] getCantidadProductos(Venta venta){
-          
-          
-          
-          Integer[] productosCantidad = new Integer[venta.getProductos().size()];
-          
-          
-          for (int i = 0; i < venta.getProductos().size(); i++) {
-              productosCantidad[i] = 1;
-          }
-          
-          
-      
-      return productosCantidad;
-      }
-      
-      
-   
-      public  Array crearArreglo(Class<?> tipo, int longitud) {
-        
+
+    public Integer[] getIdProductos(Venta venta) {
+
+        Integer[] productosID = new Integer[venta.getProductos().size()];
+
+        Integer[] productos = {};
+
+        for (int i = 0; i < venta.getProductos().size(); i++) {
+            productosID[i] = venta.getProductos().get(i).getCodigoProducto();
+        }
+
+        return productosID;
+    }
+
+    public Integer[] getIdProductos(ProductosBodega productosBodega) {
+
+        Integer[] productosID = new Integer[productosBodega.getProductos().size()];
+
+        Integer[] productos = {};
+
+        for (int i = 0; i < productosBodega.getProductos().size(); i++) {
+            productosID[i] = productosBodega.getProductos().get(i).getCodigoProducto();
+        }
+
+        return productosID;
+    }
+
+    public Integer[] getCantidadProductos(ProductosBodega productosBodega) {
+
+        Integer[] productosID = new Integer[productosBodega.getProductos().size()];
+
+        Integer[] productos = {};
+
+        for (int i = 0; i < productosBodega.getProductos().size(); i++) {
+            productosID[i] = productosBodega.getProductos().get(i).getExistencias();
+        }
+
+        return productosID;
+    }
+
+    public Integer[] getCantidadProductos(Venta venta) {
+
+        Integer[] productosCantidad = new Integer[venta.getProductos().size()];
+
+        for (int i = 0; i < venta.getProductos().size(); i++) {
+            productosCantidad[i] = 1;
+        }
+
+        return productosCantidad;
+    }
+
+    public Array crearArreglo(Class<?> tipo, int longitud) {
+
         Array arreglo = (Array) Array.newInstance(tipo, longitud);
 
-        
         for (int i = 0; i < longitud; i++) {
             Array.set(arreglo, i, i + 1);  // En este caso, solo está llenando el arreglo con los números 1, 2, 3, etc.
         }
 
-    
         return arreglo;
     }
-    
-    
-    
-      
 
     public static int[][] BuscarRepetidos(int[] ids, int[] cantidades) {
         int n = ids.length;
@@ -136,9 +140,7 @@ public class Util {
         return -1;
     }
 
-
-
-    public int[] ConvertirArregloSaI(String arreglo[]){
+    public int[] ConvertirArregloSaI(String arreglo[]) {
 
         int[] cantidadesInt = new int[arreglo.length];
 
@@ -147,16 +149,13 @@ public class Util {
                 cantidadesInt[i] = Integer.parseInt(arreglo[i]);
             } catch (NumberFormatException e) {
 
-
             }
         }
-
 
         return cantidadesInt;
     }
 
-
-    public  boolean esNumero(String cadena) {
+    public boolean esNumero(String cadena) {
         try {
             Double.parseDouble(cadena);
             return true;
@@ -164,8 +163,8 @@ public class Util {
             return false;
         }
     }
-    
-        public static String Encriptar(String password) {
+
+    public static String Encriptar(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] passwordBytes = password.getBytes();
@@ -182,13 +181,12 @@ public class Util {
         }
         return null;
     }
-        
-        public boolean ValidarLenght(String palabra, int Lenght){
-        if(palabra.length() <= Lenght){
-        return true;
+
+    public boolean ValidarLenght(String palabra, int Lenght) {
+        if (palabra.length() <= Lenght) {
+            return true;
         }
         return false;
-        }
-
+    }
 
 }
