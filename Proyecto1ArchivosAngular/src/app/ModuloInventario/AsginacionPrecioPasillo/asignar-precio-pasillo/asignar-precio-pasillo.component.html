@@ -1,0 +1,69 @@
+<div class="container col-xl-10 col-xxl-8 px-6 py-0">
+    <div class="row align-items-center g-lg-5 py-5">
+        <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="actualizado">
+            <strong>Se ha Actualizado el producto satisfactoriamente!</strong> ya puede realizar otra actualizacion!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="error">
+            <strong>Error! </strong> Hubo un error al actualizar el producto, porfavor verifique los datos!
+
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+
+        
+            <div class="card" style="width: 180rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{producto.nombre}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Codigo: {{producto.codigoProducto}}</h6>
+
+                    Categoria: {{ producto.categoria}}<br>
+                    Sub Categoria: {{ producto.sub_categoria}}<br>
+                    Descripcion: {{ producto.descripcion}}<br>
+                    Plataforma: {{ producto.plataforma}}<br>
+
+                </div>
+            </div>
+    
+            
+
+
+
+
+        <form [formGroup]="FormularioProducto" (ngSubmit)="submit()">
+            <div class="form-group">
+                <label for="inputAddress">Precio</label>
+                <input class="form-control"
+                    [class.is-invalid]="FormularioProducto.controls['precio'].invalid && FormularioProducto.controls['precio'].touched"
+                    id="precio" name="precio" formControlName="precio" />
+
+                <div *ngIf="FormularioProducto.controls['precio'].invalid && (FormularioProducto.controls['precio'].dirty || FormularioProducto.controls['precio'].touched)"
+                    class="invalid-feedback">
+                    <div>
+                        Ingrese el preciooooo!
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="inputAddress">Pasillo</label>
+                <input class="form-control"
+                    [class.is-invalid]="FormularioProducto.controls['pasillo'].invalid && FormularioProducto.controls['pasillo'].touched"
+                    id="pasillo" name="pasillo" formControlName="pasillo" />
+
+                <div *ngIf="FormularioProducto.controls['pasillo'].invalid && (FormularioProducto.controls['pasillo'].dirty || FormularioProducto.controls['pasillo'].touched)"
+                    class="invalid-feedback">
+                    <div>
+                        Ingrese el Pasillo >:(
+                    </div>
+                </div>
+                <br>
+                <button class="btn btn-success" type="submit" [disabled]="FormularioProducto.invalid">Asignar</button>
+            </div>
+        </form>
+
+    </div>
+</div>

@@ -1,19 +1,20 @@
 <div class="container col-xl-10 col-xxl-8 px-6 py-0">
-    
+    <div>
+
     <div class="row align-items-center g-lg-5 py-5">
-        
+
         <div class="col-md-12">
-            
+
             <div class="alert alert-success" role="alert" *ngIf="saved">
                 Cliente Creado Exitosamente. <br />
-            
-                
+
+
                 Ya puede cerrar la venta!
 
             </div>
 
             <div class="alert alert-danger" role="alert" *ngIf="error">
-                
+
                 Ya existe un usuario con el mismo nit o los datos estan incorrectos!
                 <br>
                 Por favor, revise los datos!
@@ -21,10 +22,10 @@
             </div>
             <div class="col-md-10 mx-auto col-lg-6">
                 <h1 class="display-10 fw-bold lh-05 text-body-emphasis mb-50">Creacion Usuario Cliente</h1>
-    
-            </div> 
 
-            
+            </div>
+
+
             <form [formGroup]="FormularioCliente" (ngSubmit)="submit()">
                 <div class="form-row">
 
@@ -62,8 +63,8 @@
 
 
 
-          
-                    
+
+
 
 
                     <div class="form-group">

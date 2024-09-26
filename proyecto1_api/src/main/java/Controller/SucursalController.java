@@ -5,6 +5,7 @@
 package Controller;
 
 import DatosBD.SucursalBD;
+import Model.ProductoSinPrecio;
 import Model.Productos;
 import Model.ProductosBodega;
 import Model.Sucursal;
@@ -31,6 +32,16 @@ public class SucursalController {
    public ProductosBodega agregarProductos (ProductosBodega productos) throws SQLException{
    
    return sucursalBD.ingresarProductos(productos);
+   }
+   
+   public List<Productos> getProductosSinPrecio(int codigo){
+   
+   return sucursalBD.getProductosSinPrecio(codigo);
+   }
+   
+   public ProductoSinPrecio actualizarPrecioPasillo(ProductoSinPrecio producto) throws SQLException{
+   
+       return sucursalBD.actualizarPrecioPasillo(producto);
    }
    
     

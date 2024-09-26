@@ -75,6 +75,14 @@ export class LoginComponent {
 
 
           }
+          if (usuario.tipo == "inventario") {
+
+          
+              this.router.navigate(['Proyecto1/Modulo/Inventario']);
+            
+
+
+          }
 
        
           

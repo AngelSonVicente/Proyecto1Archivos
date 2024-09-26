@@ -26,6 +26,10 @@ import { IngresarProductosBodegaComponent } from './ModuloBodega/IngresarProduct
 import { CarritoIngresoBodegaComponent } from './ModuloBodega/IngresarProductos/carrito-ingreso-bodega/carrito-ingreso-bodega.component';
 import { EnviarProductosSucursalComponent } from './ModuloBodega/EnviarProductos/enviar-productos-sucursal/enviar-productos-sucursal.component';
 import { CarritoIngresoSucursalComponent } from './ModuloBodega/EnviarProductos/carrito-ingreso-sucursal/carrito-ingreso-sucursal.component';
+import { ModuloInventarioComponent } from './ModuloInventario/modulo-inventario/modulo-inventario.component';
+import { ProductosPendientesComponent } from './ModuloInventario/AsginacionPrecioPasillo/productos-pendientes/productos-pendientes.component';
+import { AsignarPrecioPasilloComponent } from './ModuloInventario/AsginacionPrecioPasillo/asignar-precio-pasillo/asignar-precio-pasillo.component';
+import { ActualizarPrecioPasilloComponent } from './ModuloInventario/ActualizarPrecioPasillo/actualizar-precio-pasillo/actualizar-precio-pasillo.component';
 
 
 
@@ -50,6 +54,10 @@ import { CarritoIngresoSucursalComponent } from './ModuloBodega/EnviarProductos/
     CarritoIngresoBodegaComponent,
     EnviarProductosSucursalComponent,
     CarritoIngresoSucursalComponent,
+    ModuloInventarioComponent,
+    ProductosPendientesComponent,
+    AsignarPrecioPasilloComponent,
+    ActualizarPrecioPasilloComponent,
  
   ],
   imports: [

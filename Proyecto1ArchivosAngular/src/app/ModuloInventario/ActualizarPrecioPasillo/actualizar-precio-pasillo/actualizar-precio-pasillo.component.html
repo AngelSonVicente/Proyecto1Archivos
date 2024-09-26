@@ -1,0 +1,47 @@
+<div class="container" *ngIf="usuario.tipo =='inventario'">
+
+
+
+    <h1 class="text align-items-center">Productos Pendientes</h1>
+
+    <table class="table  table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Categoria</th>
+                <th>SubCategoria</th>
+                <th>Plataforma</th>
+                <th>Precio</th>
+                <th>Pasillo</th>
+                <th>Asignar Precio/Pasillo</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of productos" >
+           
+                <td *ngIf="producto.precio>0">{{ producto.codigoProducto }}</td>
+                <td *ngIf="producto.precio>0">{{ producto.nombre }}</td>
+                <td *ngIf="producto.precio>0">{{ producto.descripcion }}</td>
+                <td *ngIf="producto.precio>0">{{ producto.categoria }}</td>
+                <td *ngIf="producto.precio>0">{{ producto.sub_categoria }}</td>
+                <td *ngIf="producto.precio>0">{{producto.plataforma }}</td>
+                <td *ngIf="producto.precio>0">{{producto.precio }}</td>
+                <td *ngIf="producto.precio>0">{{producto.pasillo }}</td>
+                <td *ngIf="producto.precio>0"> <a class="btn btn-outline-success" (click)="actualizar(producto)">Asignar</a>
+           
+                    
+
+            </tr>
+
+        </tbody>
+    </table>
+
+
+
+
+
+</div>

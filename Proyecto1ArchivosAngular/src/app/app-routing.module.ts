@@ -14,6 +14,10 @@ import { CrearEmpleadosComponent } from './ModuloAdmin/GestionEmpleados/crear-em
 import { ModuloBodegaComponent } from './ModuloBodega/modulo-bodega/modulo-bodega.component';
 import { IngresarProductosBodegaComponent } from './ModuloBodega/IngresarProductos/ingresar-productos-bodega/ingresar-productos-bodega.component';
 import { EnviarProductosSucursalComponent } from './ModuloBodega/EnviarProductos/enviar-productos-sucursal/enviar-productos-sucursal.component';
+import { ModuloInventarioComponent } from './ModuloInventario/modulo-inventario/modulo-inventario.component';
+import { ProductosPendientesComponent } from './ModuloInventario/AsginacionPrecioPasillo/productos-pendientes/productos-pendientes.component';
+import { AsignarPrecioPasilloComponent } from './ModuloInventario/AsginacionPrecioPasillo/asignar-precio-pasillo/asignar-precio-pasillo.component';
+import { ActualizarPrecioPasilloComponent } from './ModuloInventario/ActualizarPrecioPasillo/actualizar-precio-pasillo/actualizar-precio-pasillo.component';
 
 const rutasCajero = [
   {
@@ -54,10 +58,31 @@ const rutasBodega = [
   },
 
  
-  
-
-
 ]
+const rutasInventario = [
+  {
+    path: 'ProductosPendientes',
+    title: 'Productos Pendientes',
+    component: ProductosPendientesComponent
+  },
+  {
+    path: 'AsignarPrecioPasillo',
+    title: 'Asignar Precio',
+    component: AsignarPrecioPasilloComponent
+  },
+  {
+    path: 'ActualizarPrecioPasillo',
+    title: 'Actualizar Precio ',
+    component: ActualizarPrecioPasilloComponent
+  },
+
+  
+ 
+]
+
+
+
+
 const rutasAdmin = [
 
   {
@@ -76,9 +101,6 @@ const rutasAdmin = [
     component: CrearEmpleadosComponent
   },
   
-
-
-
 ]
 
 const routes: Routes = [
@@ -112,6 +134,11 @@ const routes: Routes = [
     title: "Modulo Bodega",
     component: ModuloBodegaComponent 
   },
+  {
+    path: 'Proyecto1/Modulo/Inventario',
+    title: "Modulo Inventario",
+    component: ModuloInventarioComponent 
+  },
 
   {
     path:"Proyecto1/Bodega",
@@ -129,6 +156,12 @@ const routes: Routes = [
     path:"Proyecto1/Administrador",
     title:"Administrador",
     children: rutasAdmin,
+  
+  },
+  {
+    path:"Proyecto1/Inventario",
+    title:"Inventario",
+    children: rutasInventario,
   
   },
   
